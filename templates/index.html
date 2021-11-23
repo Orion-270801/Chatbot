@@ -1,0 +1,195 @@
+<html>
+<title>Telemedicine Chatbot</title>
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
+  <link rel="icon" href="">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body background="{{ url_for('static', filename='left.jpg') }}">
+  <img />
+  <style>
+    body {
+      font-family: monospace;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    h1 {
+      border: 1px solid white;
+      border-radius: 5px;
+      color: #ce9e62;
+      display: inline-block;
+      font-size: 3em;
+      margin: 5;
+      padding: 10px;
+    }
+
+    #chatbox {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+      margin-top: 60px;
+    }
+
+    .botText {
+      color: #ce9e62;
+      background-color: #2c2c2c;
+      font-family: 'Alegreya';
+      font-size: 17px;
+      text-align: center;
+      line-height: 30px;
+      border-radius: 5px;
+    }
+
+    .botText span {
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .boxed {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      margin-top: 60px;
+      border-radius: 5px;
+    }
+  </style>
+  <h1>
+  <center>
+    Telemedicine Chatbot
+   </center>
+  </h1>
+  <center>
+    <form action="" id="form_details">
+      <p>Name <input type="text" name="Name" /></p>
+      <p>Age <input type="text" name="Age" /></p>
+      <p>Gender <input type="text" name="BP" /></p>
+      <p>Weight <input type="text" name="Weight" /></p>
+      <p>Blood Pressure <input type="text" name="BP" /></p>
+      <p>
+      <h3>Temperature</h3>
+      </p>
+      Normal <input type="checkbox" value="No Fever" name="mycheckbox">
+      99 - 100 <input type="checkbox" value="MildFever" name="mycheckbox">
+      100 - 102 <input type="checkbox" value="High Fever" name="mycheckbox">
+      102 - 104 <input type="checkbox" value="Critical Fever" name="mycheckbox">
+      Temperature Greater Than 104 <input type="checkbox" value="Critical Fever" name="mycheckbox">
+      <p>
+      <h3> Blood Pressure</h3>
+      </p>
+      Low <input type="checkbox" value="Low BP" name="mycheckbox">
+      Normal <input type="checkbox" value="Normal BP" name="mycheckbox">
+      High <input type="checkbox" value="High BP" name="mycheckbox">
+      Very High <input type="checkbox" value="Critical BP" name="mycheckbox">
+      <p>
+      <h3> Pain </h3>
+      </p>
+      No Pain<input type="checkbox" value="No pain" name="mycheckbox">
+      Stomach <input type="checkbox" value="Stomach Pain" name="mycheckbox">
+      Chest <input type="checkbox" value="Chest Pain" name="mycheckbox">
+      Joint <input type="checkbox" value="Joint Pain" name="mycheckbox">
+      Abdominal <input type="checkbox" value="Abdominal Pain" name="mycheckbox">
+      Injured Area <input type="checkbox" value="Injury Pain" name="mycheckbox">
+      Muscle <input type="checkbox" value="Muscle Pain" name="mycheckbox">
+      <p>
+      <h3>Blood Loss </h3>
+      </p>
+      Yes <input type="checkbox" value="Blood Loss" name="mycheckbox">
+      No <input type="checkbox" value="No Blood Loss" name="mycheckbox">
+      <p>
+      <h3>Breathlessness </h3>
+      </p>
+      Yes <input type="checkbox" value="No Breathing Problem" name="mycheckbox">
+      No <input type="checkbox" value="Breathing Problem" name="mycheckbox">
+      <p>
+      <h3>Cough </h3>
+      </p>
+      Yes <input type="checkbox" value="Cough Present" name="mycheckbox">
+      No <input type="checkbox" value="No Cough" name="mycheckbox">
+      <p>
+      <h3>Weakness</h3>
+      </p>
+      Yes <input type="checkbox" value="Feeling Weak" name="mycheckbox">
+      No <input type="checkbox" value="No Weakness" name="mycheckbox">
+      <p>
+      <h3>Headache</h3>
+      </p>
+      Yes <input type="checkbox" value="Headache present" name="mycheckbox">
+      No <input type="checkbox" value="No Headache" name="mycheckbox">
+      <p>
+      <h3>Sweat</h3>
+      </p>
+      Yes <input type="checkbox" value="Sweating" name="mycheckbox">
+      No <input type="checkbox" value="No Sweat" name="mycheckbox">
+      <p>
+      <h3>Insmonia</h3>
+      </p>
+      Yes <input type="checkbox" value="Insomnia present" name="mycheckbox">
+      No <input type="checkbox" value="No Insomnia" name="mycheckbox">
+      <p>
+      <h3>Dehydration</h3>
+      </p>
+      Yes <input type="checkbox" value="Dehydration" name="mycheckbox">
+      No <input type="checkbox" value="No Dehydration" name="mycheckbox">
+      <p>
+      <h3>Dry Throat</h3>
+      </p>
+      Yes <input type="checkbox" value="Dry Throat" name="mycheckbox">
+      No <input type="checkbox" value="No Dry Throat" name="mycheckbox">
+      <p>
+      <h3>Urine Frequecy</h3>
+      </p>
+      Low <input type="checkbox" value="Low Urine" name="mycheckbox">
+      Normal <input type="checkbox" value="Normal Urine" name="mycheckbox">
+      High <input type="checkbox" value="High Urine" name="mycheckbox">
+      <p>
+      <h3>Appetite</h3>
+      </p>
+      Normal <input type="checkbox" value="Normal appetite" name="mycheckbox">
+      Loss <input type="checkbox" value="No appetite" name="mycheckbox">
+      <p>
+      <h3>Stool</h3>
+      </p>
+      Normal <input type="checkbox" value="Normal Stool" name="mycheckbox">
+      Loose <input type="checkbox" value="Loose Motion" name="mycheckbox">
+      Constipation <input type="checkbox" value="Constipation" name="mycheckbox">
+      <p>
+      <h3>Skin</h3>
+      </p>
+      Normal <input type="checkbox" value="Normal Skin" name="mycheckbox">
+      Loss of Elasticity <input type="checkbox" value="Loose Skin" name="mycheckbox">
+      Rash <input type="checkbox" value="Rash Skin" name="mycheckbox">
+      <p><input type="submit" id='subm'></p>
+  </center>
+  <div id="">
+    Result Here
+    <div id="result">
+
+    </div>
+  </div>
+  <div class="boxed">
+    <div>
+      <div id="chatbox">
+      </div>
+    </div>
+    </form>
+    <script>
+      $("form").on("submit", function (e) {
+        e.preventDefault();
+        const form = document.querySelector('form');
+        const data = Object.fromEntries(new FormData(form).entries());
+        console.log(data);
+        const res = $.post('/get', data);
+        res.done(function (done) {
+          console.log(done)
+          $("#result").html(done);
+          // reset form
+          $('#form_details')[0].reset();
+        })
+      })
+    </script>
